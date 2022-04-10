@@ -1,10 +1,15 @@
 const Employee = require('../lib/Employee');
 
-test('creates a new employee', () => {
-    const employee = new Employee('name');
+describe('Employee Class', () => {
+    describe('Initialization', () => {
+        it('Should create object with an id and name', () => {
+            const employee = new Employee(123, 'Jared')
 
-    expect(employee.name).toBe('name');
+            expect(employee.id).toEqual(123);
+            expext(employee.name).toEqual('Jared');
+        });
+    });
 
-    expect(employee.name).toEqual(expect.any(String));
-    expect(employee.name.length).toBeGreaterThan(0);
 });
+
+
