@@ -6,7 +6,7 @@ describe('Employee Class', () => {
             const employee = new Employee(123, 'Jared')
 
             expect(employee.id).toEqual(123);
-            expext(employee.name).toEqual('Jared');
+            expect(employee.name).toEqual('Jared');
         });
     });
 
