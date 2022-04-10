@@ -144,7 +144,8 @@ const internQuestions = () => {
 
 managerQuestions();
 
-function writetoFile(fileName, data) {
+
+function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if (err) throw err;
         console.log('file saved')

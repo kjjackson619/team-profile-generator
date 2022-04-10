@@ -4,30 +4,30 @@ const Intern = require('../lib/Intern');
 
 
 function generateCards(team) {
-    let cards = []
+  let cards = []
 
-    for (let i = 0; i < team.length; i++) {
-        const teamArray = team[i];
-        switch (teamArray.getRole()) {
-            case 'Manager':
-                const manager = new Manager(teamArray.id, teamArray.name, teamArray.email, teamArray.officeNumber);
-                cards.push(generateManagerCard(manager));
-                break;
-            case 'Engineer':
-                const engineer = new Engineer(teamArray.id, teamArray.name, teamArray.email, teamArray.github);
-                cards.push(generateEngineerCard(engineer));
-                break;
-            case 'Intern':
-                const intern = new Intern(teamArray.id, teamArray.name, teamArray.email, teamArray.school);
-                cards.push(generateInternCard(intern));
-                break;
-        }
+  for (let i = 0; i < team.length; i++) {
+    const teamArray = team[i];
+    switch (teamArray.getRole()) {
+      case 'Manager':
+        const manager = new Manager(teamArray.id, teamArray.name, teamArray.email, teamArray.officeNumber);
+        cards.push(generateManagerCard(manager));
+        break;
+      case 'Engineer':
+        const engineer = new Engineer(teamArray.id, teamArray.name, teamArray.email, teamArray.github);
+        cards.push(generateEngineerCard(engineer));
+        break;
+      case 'Intern':
+        const intern = new Intern(teamArray.id, teamArray.name, teamArray.email, teamArray.school);
+        cards.push(generateInternCard(intern));
+        break;
     }
-    return cards.join(``)
+  }
+  return cards.join(``)
 }
 
 let generateManagerCard = (Manager) => {
-    return `
+  return `
           <div class="card m-1 shadow" style="width: 18rem">
             <div class='card-header'>
               <h3 class="card-title">${Manager.getName()}</h3>
@@ -45,7 +45,7 @@ let generateManagerCard = (Manager) => {
 }
 
 let generateEngineerCard = (Engineer) => {
-    return `
+  return `
           <div class="card m-1 shadow" style="width: 18rem">
             <div class='card-header'>
               <h3 class="card-title">${Engineer.getName()}</h3>
@@ -63,7 +63,7 @@ let generateEngineerCard = (Engineer) => {
 };
 
 let generateInternCard = (Intern) => {
-    return `
+  return `
           <div class="card m-1 shadow" style="width: 18rem">
             <div class='card-header'>
               <h3 class="card-title">${Intern.getName()}</h3>
@@ -81,8 +81,8 @@ let generateInternCard = (Intern) => {
 }
 
 function generateTeam(team) {
-    console.log(team)
-    return `
+  console.log(team)
+  return `
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -94,12 +94,12 @@ function generateTeam(team) {
           <title>My Team</title>
         </head>
         <body>
-        <div class="jumbotron jumbotron-fluid bg-warning">
+        <div class="jumbotron jumbotron-fluid bg-danger">
           <div class="container">
             <h1 class="display-4 text-center">My Team</h1>
           </div>
         </div>
-        <div class="d-flex flex-row flex-wrap justify-content-center">
+        <div class="d-flex flex-row flex-wrap justify-content-center bg-primary">
         ${generateCards(team)}
         </div>
         </body>
